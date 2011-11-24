@@ -1,8 +1,9 @@
 package Test::Attribute::AutoLevel;
 use strict;
 use warnings;
-use 5.012001;
-our $VERSION = '0.01';
+use Devel::Peek ();
+use 5.008001;
+our $VERSION = '0.02';
 
 sub import {
     my $caller = caller(0);
@@ -19,8 +20,7 @@ sub _fake {
         $code->(@_);
     };
 
-    require B;
-    my $funcname = B::svref_2object($code)->GV->NAME;
+    (my $funcname) = Devel::Peek::CvGV($code) =~ m/::(.*)$/;
 
     no strict 'refs';
     *{"${pkg}::${funcname}"} = $fake;
