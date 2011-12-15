@@ -3,6 +3,7 @@ abstract: 'auto set $Test::Builder::Level'
 author:
   - 'Atsushi Kobayashi <nekokak _at_ gmail _dot_ com>'
 build_requires:
+  Capture::Tiny: 0
   ExtUtils::MakeMaker: 6.62
   Test::More: 0.94
 configure_requires:
@@ -25,4 +26,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: git://github.com/nekokak/p5-test-attribute-autolevel.git
-version: 0.04
+version: 0.05
